@@ -14,12 +14,12 @@ int subtrair(int a, int b){ return a-b;}
 int multiplicar(int a, int b){ return a*b;}
 int dividir(int a, int b){ return a/b;}
 
-struct calculadora calculadoraCreator(){
-    struct calculadora newCalculadora;
-    newCalculadora.sum = somar;
-    newCalculadora.sub = subtrair;
-    newCalculadora.mult = multiplicar;
-    newCalculadora.div = dividir;
+struct calculadora* calculadoraCreator(){
+    struct calculadora *newCalculadora;
+    newCalculadora->sum = somar;
+    newCalculadora->sub = subtrair;
+    newCalculadora->mult = multiplicar;
+    newCalculadora->div = dividir;
     return newCalculadora;
 }
 
@@ -46,7 +46,7 @@ int modulo(int a, int b){ return a%b;}
 
 struct calculadoraCientifica calculadoraCientificaCreator(){
     struct calculadoraCientifica newCalculadoraCientifica;
-    *(newCalculadoraCientifica.calculadora) = calculadoraCreator();
+    newCalculadoraCientifica.calculadora = calculadoraCreator();
     newCalculadoraCientifica.sum = newCalculadoraCientifica.calculadora->sum;
     newCalculadoraCientifica.sub = newCalculadoraCientifica.calculadora->sub;
     newCalculadoraCientifica.mult = newCalculadoraCientifica.calculadora->mult;
